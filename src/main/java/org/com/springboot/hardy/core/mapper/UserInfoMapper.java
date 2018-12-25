@@ -1,0 +1,21 @@
+package org.com.springboot.hardy.core.mapper;
+
+import org.com.springboot.hardy.core.datasource.DataBase;
+import org.com.springboot.hardy.core.datasource.DataSource;
+import org.com.springboot.hardy.core.entity.UserInfo;
+
+public interface UserInfoMapper {
+    
+    int deleteByPrimaryKey(Integer id);
+
+    int insert(UserInfo record);
+
+    int insertSelective(UserInfo record);
+    
+    @DataSource(value=DataBase.SLAVE_DATA)
+    UserInfo selectByPrimaryKey(Integer id);
+
+    int updateByPrimaryKeySelective(UserInfo record);
+    
+    int updateByPrimaryKey(UserInfo record);
+}
